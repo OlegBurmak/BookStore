@@ -1,0 +1,16 @@
+@model CartLine
+
+<div class="product product-widget">
+    <div class="product-thumb">
+        <img src="@Model.Product.Image" alt="">
+    </div>
+    <div class="product-body">
+        <h3 class="product-price">@Model.Product.Price <span class="qty">@Model.Quantity</span></h3>
+        <h2 class="product-name"><a asp-route-productId="@Model.Product.ProductId" asp-action="PageProduct" asp-controller="Product">@Model.Product.Name</a></h2>
+    </div>
+    <a class="cancel-btn" 
+        asp-action="Index" asp-controller="Cart"
+        asp-route-returnurl="@ViewContext.HttpContext.Request.PathAndQuery()" >
+        <i class="fa fa-trash"></i>
+    </a>
+</div>

@@ -1,0 +1,56 @@
+@model Order
+
+
+<!-- section -->
+	<div class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row text-danger" asp-validation-summary="All">
+				<form asp-action="Checkout" method="post" class="clearfix">
+					<div class="col-md-6">
+						<div class="billing-details">
+							<div class="section-title">
+								<h3 class="title">Уточните детали</h3>
+							</div>
+							<div class="form-group">
+								<input class="input" asp-for="Name" placeholder="First Name">
+							</div>
+                            <div class="form-group">
+								<input class="input" asp-for="Line1" placeholder="Line addres 1">
+							</div>
+                            <div class="form-group">
+								<input class="input" asp-for="Line2" placeholder="Line addres 2">
+							</div>
+                            <div class="form-group">
+								<input class="input" asp-for="Line3" placeholder="Line addres 3">
+							</div>
+                            <div class="form-group">
+								<input class="input" asp-for="City" placeholder="City">
+							</div>
+                            <div class="form-group">
+								<input class="input" asp-for="State" placeholder="State">
+							</div>
+                            <div class="form-group">
+								<input class="input" asp-for="Zip" placeholder="ZIP">
+							</div>
+                            <div class="form-group">
+								<input class="input" asp-for="Country" placeholder="Country">
+							</div>
+							
+							<div class="form-group">
+								<div class="input-checkbox">
+									<input type="checkbox" id="register" asp-for="GiftWrap" />
+									<label class="font-weak" for="register">Gift wrap these items?</label>
+								</div>
+							</div>
+                            <input class="btn btn-primary" type="submit" value="Заказать" />
+						</div>
+					</div>
+				</form>
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /section -->

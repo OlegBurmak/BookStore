@@ -1,0 +1,40 @@
+﻿@model Product
+
+<div class="col-md-4 col-sm-6 col-xs-6">
+    <div class="product product-single">
+        <div class="product-thumb">
+            <a asp-route-productId="@Model.ProductId" 
+            asp-action="PageProduct" asp-controller="Product"
+            class="main-btn quick-view"><i class="fa fa-search-plus"></i>Show</a>
+            <img src="@Model.Image" alt="" />
+        </div>
+        <div class="product-body">
+            <h3 class="product-price">@Model.Price - грн</h3>
+            <div class="product-rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-o empty"></i>
+            </div>
+            <h2 class="product-name">
+                <a asp-route-productId="@Model.ProductId" 
+                asp-action="PageProduct" 
+                asp-controller="Product">@Model.Name</a>
+            </h2>
+            <form id="@Model.ProductId" asp-action="AddToCart" asp-controller="Cart" method="post">
+                <input type="hidden" asp-for="ProductId" />
+                <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+                <div class="product-btns">
+                    <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
+                    <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
+                    <button type="submit" class="primary-btn add-to-cart">
+                        <i class="fa fa-shopping-cart"></i> 
+                        Добавить в корзину
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

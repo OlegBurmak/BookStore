@@ -1,0 +1,53 @@
+@model CartIndexViewModel
+
+<!-- section -->
+<div class="section">
+    <!-- container -->
+<div class="container">
+        <!-- row -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="order-summary clearfix">
+                <div class="section-title">
+                    <h3 class="title">Список товаров</h3>
+                </div>
+                <table class="shopping-cart-table table">
+                    <thead>
+                        <tr>
+                            <th>Книги</th>
+                            <th></th>
+                            <th class="text-center">Цена</th>
+                            <th class="text-center">Количество</th>
+                            <th class="text-center">В итоге</th>
+                            <th class="text-right"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in @Model.Cart.Lines)
+                        {
+                            @await Html.PartialAsync("CartListSummary", new HelpCart { 
+                                CartLine = item, 
+                                ReturnUrl = @Model.ReturnUrl
+                            })
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th class="empty" colspan="3"></th>
+                            <th>Итого</th>
+                            <th colspan="2" class="total">@Model.Cart.ComputeTotalValue().ToString() - грн</th>
+                        </tr>
+                    </tfoot>
+                </table>
+                <div class="pull-right">
+                    <a href="@Model.ReturnUrl" class="btn primary-btn">Продолжить покупки</a>
+                    <a class="btn primary-btn" asp-action="Checkout" asp-controller="Order">Купить</a>
+                </div>
+            </div>
+        </div>
+    </div>
+        <!-- /row -->
+</div>
+    <!-- /container -->
+</div>
+<!-- /section -->

@@ -1,0 +1,43 @@
+@model Cart
+
+<!-- Cart -->
+    <li class="header-cart dropdown default-dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+            <div class="header-btns-icon">
+                <i class="fa fa-shopping-cart"></i>
+                @if (Model.Lines.Count() > 0)
+                {
+                    <span class="qty">@Model.Lines.Sum(x => x.Quantity)</span>
+                }
+            </div>
+            <strong class="text-uppercase">Корзина:</strong>
+            <br>
+            @if (Model.Lines.Count() > 0)
+            {
+                <span>@Model.ComputeTotalValue().ToString()</span>
+            }
+        </a>
+        <div class="custom-menu">
+            <div id="shopping-cart">
+                <div class="shopping-cart-list">
+                    
+                    @foreach (var item in @Model.Lines)
+                    {
+                        @await Html.PartialAsync("DropDownMenuProductsSummary", item)
+                    }
+
+                </div>
+                <div class="shopping-cart-btns">
+                    <a class="main-btn" 
+                        asp-action="Index" asp-controller="Cart" 
+                        asp-route-returnurl="@ViewContext.HttpContext.Request.PathAndQuery()">
+                        К корзине
+                    </a>
+                    <a class="primary-btn" asp-action="Checkout" asp-controller="Order">
+                        Купить<i class="fa fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </li>
+<!-- /Cart -->

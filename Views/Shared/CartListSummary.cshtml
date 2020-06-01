@@ -1,0 +1,26 @@
+@model HelpCart
+
+<tr>
+    <td class="thumb"><img src="@Model.CartLine.Product.Image" alt=""></td>
+    <td class="details">
+        <a asp-route-productId="@Model.CartLine.Product.ProductId" 
+            asp-action="PageProduct" asp-controller="Product">@Model.CartLine.Product.Name</a>
+        <ul>
+            <li><span>Жанр: @Model.CartLine.Product.Category</span></li>
+            <li><span>Автор: @Model.CartLine.Product.Author</span></li>
+        </ul>
+    </td>
+    <td class="price text-center"><strong>@Model.CartLine.Product.Price - грн</strong><br></td>
+    <td class="price text-center"><strong>@Model.CartLine.Quantity</strong><br></td>
+    <td class="total text-center">
+        <strong class="primary-color">
+            @((Model.CartLine.Quantity * Model.CartLine.Product.Price).ToString()) - грн
+        </strong></td>
+    <td class="text-right">
+        <form asp-action="RemoveFromCart" method="post">
+            <input type="hidden" name="ProductId" value="@Model.CartLine.Product.ProductId" />
+            <input type="hidden" name="returnUrl" value="@Model.ReturnUrl" />
+            <button class="main-btn icon-btn"><i class="fa fa-close"></i></button>
+        </form>
+    </td>
+</tr>
