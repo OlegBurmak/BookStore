@@ -152,3 +152,5 @@ D:\C#Projects\VStudio\BookStore\TheBookStore\TheBookStore\obj\Debug\netcoreapp3.
 D:\C#Projects\VStudio\BookStore\TheBookStore\TheBookStore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\CartListSummary.cshtml.g.cs
 D:\C#Projects\VStudio\BookStore\TheBookStore\TheBookStore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\CartSummary\Default.cshtml.g.cs
 D:\C#Projects\VStudio\BookStore\TheBookStore\TheBookStore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\DropDownMenuProductsSummary.cshtml.g.cs
+D:\C#Projects\VStudio\BookStore\TheBookStore\TheBookStore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\CommentsSummary.cshtml.g.cs
+D:\C#Projects\VStudio\BookStore\TheBookStore\TheBookStore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\CommentForm.cshtml.g.cs

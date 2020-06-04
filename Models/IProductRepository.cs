@@ -8,5 +8,6 @@ namespace TheBookStore.Models
     public interface IProductRepository
     {
         IQueryable<Product> Products { get; }
+        void SaveComment(Product product);
     }
 }

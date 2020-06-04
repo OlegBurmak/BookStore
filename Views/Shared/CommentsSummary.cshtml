@@ -1,0 +1,19 @@
+@model Comment
+
+
+<div class="single-review">
+    <div class="review-heading">
+        <div><a href="#"><i class="fa fa-user-o"></i> @Model.UserName </a></div>
+        <div><a href="#"><i class="fa fa-clock-o"></i> @Model.Date.ToLocalTime() </a></div>
+        <div class="review-rating pull-right">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-o empty"></i>
+        </div>
+    </div>
+    <div class="review-body">
+        <p>@Model.Text </p>
+    </div>
+</div>

@@ -40,7 +40,18 @@ namespace TheBookStore.Controllers
         public ViewResult PageProduct(int productId)
         {
             Product prod = repository.Products.Where(p => p.ProductId == productId).FirstOrDefault();
+            prod.Comments = prod.Comments.OrderByDescending(c => c.Date.Date).ToList();
             return View(prod);
+        }
+
+        [HttpPost]
+        public IActionResult AddComment(Comment comment, int productId)
+        {
+            comment.Date = DateTime.UtcNow;
+            Product prod = repository.Products.Where(p => p.ProductId == productId).FirstOrDefault();
+            prod.Comments.Add(comment);
+            repository.SaveComment(prod);
+            return RedirectToAction(nameof(PageProduct), new { productId = productId});
         }
     }
 }

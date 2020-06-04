@@ -10,8 +10,8 @@ using TheBookStore.Models;
 namespace TheBookStore.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200531193527_Initialize")]
-    partial class Initialize
+    [Migration("20200604115533_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -44,6 +44,32 @@ namespace TheBookStore.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("CartLine");
+                });
+
+            modelBuilder.Entity("TheBookStore.Models.Comment", b =>
+                {
+                    b.Property<int>("CommentId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Text")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("CommentId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("Comment");
                 });
 
             modelBuilder.Entity("TheBookStore.Models.Order", b =>
@@ -147,6 +173,15 @@ namespace TheBookStore.Migrations
                     b.HasOne("TheBookStore.Models.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId");
+                });
+
+            modelBuilder.Entity("TheBookStore.Models.Comment", b =>
+                {
+                    b.HasOne("TheBookStore.Models.Product", "Product")
+                        .WithMany("Comments")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

@@ -20753,6 +20753,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\C#Projects\\VStudio\\BookStore\\TheBookStore\\TheBookStore\\Views\\Shared\\CommentForm.cshtml",
+      "TargetPath": "Views\\Shared\\CommentForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\C#Projects\\VStudio\\BookStore\\TheBookStore\\TheBookStore\\Views\\Order\\Completed.cshtml",
       "TargetPath": "Views\\Order\\Completed.cshtml",
       "FileKind": "mvc"
@@ -20775,6 +20780,11 @@
     {
       "FilePath": "d:\\C#Projects\\VStudio\\BookStore\\TheBookStore\\TheBookStore\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\C#Projects\\VStudio\\BookStore\\TheBookStore\\TheBookStore\\Views\\Shared\\CommentsSummary.cshtml",
+      "TargetPath": "Views\\Shared\\CommentsSummary.cshtml",
       "FileKind": "mvc"
     },
     {
